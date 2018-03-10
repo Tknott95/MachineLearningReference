@@ -23,11 +23,13 @@ TODO: Write usage instructions
 
 ## History
 
-TODO: Write history
+Used a book which taught me alot: 
+    \\*Hands-On Machine Learning with Scikit-Learn and TensorFlo*\\
 
-## Credits
+## Other Reference - Books Used With, Etc
 
-TODO: Write credits
+1. http://shop.oreilly.com/product/0636920052289.do
+2. ...
 
 ## License
 

@@ -1,4 +1,5 @@
-# Life satisfaction and GDP per capita
+# Life satisfaction and GDP per capita  - Pulled in by TREVOR KNOTT
+# Used in http://shop.oreilly.com/product/0636920052289.do
 ## Life satisfaction
 ### Source
 This dataset was obtained from the OECD's website at: http://stats.oecd.org/index.aspx?DataSetCode=BLI
