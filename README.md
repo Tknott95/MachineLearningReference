@@ -54,11 +54,11 @@ Place in ~/.bash_profile (bashrc is for every instantiation of terminal)
         read commit_message
         echo `$commit_message $commit_ending`
 
-        echo `git commit -m "$commit_message $commit_ending"`
+        git commit -m "$commit_message"
        
     }
 
-#### END
+#### END ####
 
 
 ## License
