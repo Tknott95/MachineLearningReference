@@ -38,26 +38,27 @@ Used a book which taught me alot:
 Place in ~/.bash_profile (bashrc is for every instantiation of terminal)
 ```
 
-```
-# @SHELL_SCRIPT
-# VARS BY TREV
-    function gam() {
+
+#### SHELL SCRIPT FOR EASY COMMITS
+
+     function gam() {
         date_custom=$(date '+%d/%m/%Y %H:%M:%S');
-        commit_ending=" || @TK - $date_custom"
+        commit_ending=" || @TK - $date_custom "
 
         echo "Commit Ending:  $commit_ending"
 
         echo '1) Adding . in Repo: '
         git add .
     
-        echo '2) Enter Your Git Commit Message: '
-        read $1
+        # echo '2) Enter Your Git Commit Message: '
+        read commit_message
+        echo `$commit_message $commit_ending`
 
-        echo `git commit -m $1$commit_ending && git push`
+        echo `git commit -m "$commit_message $commit_ending"`
+       
     }
 
-# END BY TREV
-```
+#### END
 
 
 ## License
