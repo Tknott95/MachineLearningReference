@@ -40,8 +40,8 @@ Place in ~/.bash_profile (bashrc is for every instantiation of terminal)
 
 
 #### SHELL SCRIPT FOR EASY COMMITS
-
-     function gam() {
+# Functions @BashByTrev
+    function g() {
         date_custom=$(date '+%d/%m/%Y %H:%M:%S');
         commit_ending=" || @TK - $date_custom "
 
@@ -49,14 +49,16 @@ Place in ~/.bash_profile (bashrc is for every instantiation of terminal)
 
         echo '1) Adding . in Repo: '
         git add .
-    
-        # echo '2) Enter Your Git Commit Message: '
-        read commit_message
-        echo `$commit_message $commit_ending`
 
-        git commit -m "$commit_message"
+        msg = "$1$commit_ending"
+
+        git commit -m "$msg" && git push
+
+        echo "Commited via: $msg"
        
     }
+
+# END @BashByTrev
 
 #### END ####
 
