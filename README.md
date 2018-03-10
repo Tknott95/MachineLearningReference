@@ -50,14 +50,11 @@ Place in ~/.bash_profile (bashrc is for every instantiation of terminal)
         echo '1) Adding . in Repo: '
         git add .
 
-        msg = "$1$commit_ending"
+        git commit -m "$1$commit_ending" && git push
 
-        git commit -m "$msg" && git push
-
-        echo "Commited via: $msg"
+        echo "Commited Msg: $1$commit_ending"
        
     }
-
 # END @BashByTrev
 
 #### END ####
