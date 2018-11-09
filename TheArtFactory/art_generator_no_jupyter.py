@@ -4,7 +4,8 @@ from keras import backend as K
 from keras.preprocessing.image import load_img, img_to_array
 
 
-from IPython.display import Image
+# from IPython.display import Image
+from PIL import Image
 
 main_image = './main_image.jpg'
 
@@ -14,6 +15,9 @@ genImOutputPath ='./output.jpg'
 targetHeight = 512
 targetWidth = 512
 targetSize = (targetHeight, targetWidth)
+
+cImageOrig = Image.open(main_image)
+cImageSizeOrig = cImageOrig.size
 
 cImage = load_img(path=main_image, target_size=targetSize)
 cImArr = img_to_array(cImage)
