@@ -1,5 +1,7 @@
 import numpy as np
 from keras.applications.vgg16 import preprocess_input
+from keras.applications import VGG16
+
 from keras import backend as K
 from keras.preprocessing.image import load_img, img_to_array
 
@@ -104,8 +106,29 @@ def get_grad(gImArr):
     grad = grad_fcn([gImArr])[0].flatten().astype('float64')
     return grad
 
-from keras.applications import VGG16
-from scipy.optimize import fmin_l_bfgs_b
+def postprocess_array(x):
+    # Zero-center by mean pixel
+    if x.shape != (targetWidth, targetHeight, 3):
+        x = x.reshape((targetWidth, targetHeight, 3))
+    x[..., 0] += 103.939
+    x[..., 1] += 116.779
+    x[..., 2] += 123.68
+    # 'BGR'->'RGB'
+    x = x[..., ::-1]
+    x = np.clip(x, 0, 255)
+    x = x.astype('uint8')
+    return x
+
+def reprocess_array(x):
+    x = np.expand_dims(x.astype('float64'), axis=0)
+    x = preprocess_input(x)
+    return x
+
+def save_original_size(x, target_size=cImageSizeOrig):
+    xIm = Image.fromarray(x)
+    xIm = xIm.resize(target_size)
+    xIm.save(genImOutputPath)
+    return xIm
 
 tf_session = K.get_session()
 cModel = VGG16(include_top=False, weights='imagenet', input_tensor=cImArr)
@@ -123,7 +146,14 @@ P = get_feature_reps(x=cImArr, layer_names=[cLayerName], model=cModel)[0]
 As = get_feature_reps(x=sImArr, layer_names=sLayerNames, model=sModel)
 ws = np.ones(len(sLayerNames))/float(len(sLayerNames))
 
-iterations = 600
+
+iterations = 1
 x_val = gIm0.flatten()
+start = time.time()
 xopt, f_val, info= fmin_l_bfgs_b(calculate_loss, x_val, fprime=get_grad,
                             maxiter=iterations, disp=True)
+xOut = postprocess_array(xopt)
+xIm = save_original_size(xOut)
+print('Image saved')
+end = time.time()
+print('Time taken: {} s'.format((end-start) / 1000))
