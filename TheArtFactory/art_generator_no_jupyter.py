@@ -1,3 +1,4 @@
+# Following the older publication on "A Nueral Algorithm of Artistic Style"
 import numpy as np
 from keras.applications.vgg16 import preprocess_input
 from keras.applications import VGG16
@@ -16,6 +17,8 @@ main_image = './main_image.jpg'
 
 filter_image = './filter_image.jpg'
 genImOutputPath ='./output.jpg'
+
+_iterations = 100
 
 targetHeight = 512
 targetWidth = 512
@@ -150,7 +153,7 @@ As = get_feature_reps(x=sImArr, layer_names=sLayerNames, model=sModel)
 ws = np.ones(len(sLayerNames))/float(len(sLayerNames))
 
 
-iterations = 50
+iterations = _iterations
 x_val = gIm0.flatten()
 start = time.time()
 xopt, f_val, info= fmin_l_bfgs_b(calculate_loss, x_val, fprime=get_grad,
