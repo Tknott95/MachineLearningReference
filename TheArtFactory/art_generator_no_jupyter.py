@@ -8,6 +8,9 @@ from keras.preprocessing.image import load_img, img_to_array
 
 # from IPython.display import Image
 from PIL import Image
+import time
+from scipy.optimize import fmin_l_bfgs_b
+
 
 main_image = './main_image.jpg'
 
