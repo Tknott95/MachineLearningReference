@@ -18,7 +18,7 @@ main_image = './main_image.jpg'
 filter_image = './filter_image.jpg'
 genImOutputPath ='./output.jpg'
 
-_iterations = 100
+_iterations = 350
 
 targetHeight = 512
 targetWidth = 512
