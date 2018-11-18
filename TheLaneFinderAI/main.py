@@ -16,7 +16,7 @@ def render_lines(image, lines):
     lane_image = np.zeros_like(image) # same dimensions of image yet many pixels are black
     if lines is not None:
         for line in lines:
-            print(line) # will print each line as a 2d array 
+            print(line) # will print each line as a 2d array containing our line coordinates in the form [[x1,y1,x2,y2]].. specify with location of lines in correlation to image space
 
 def area_of_interest(image):
     height = image.shape[0]
