@@ -16,7 +16,7 @@ def canny(image):
 
 def render_lines(image, lines):
     line_image = np.zeros_like(image) # same dimensions of image yet many pixels are black
-    if lines is not None:
+    if lines is not None or (lines >= 2):
         for line in lines:
             print(line) # will print each line as a 2d array containing our line coordinates in the form [[x1,y1,x2,y2]].. specify with location of lines in correlation to image space
             x1, y1, x2, y2 = line.reshape(4) # now we turn into a 1D array here assigning according to value/ 
@@ -26,7 +26,7 @@ def render_lines(image, lines):
 def area_of_interest(image):
     height = image.shape[0]
     polygons = np.array([
-        [(200, height), (1100, height), (550, 250)]
+        [(350, height), (800, height), (300, 0)]
     ])
     mask = np.zeros_like(image)
     cv2.fillPoly(mask, polygons, 255)
@@ -35,9 +35,10 @@ def area_of_interest(image):
 
 canny = canny(lane_image)
 cropped_image = area_of_interest(canny)
-lines = cv2.HoughLinesP(cropped_image, 2, np.pi/180, 100, np.array([]), minLineLength=40, maxLineGap=5)
+lines = cv2.HoughLinesP(cropped_image, 2, np.pi/180, 100, np.array([]), minLineLength=50, maxLineGap=1)
 line_image = render_lines(lane_image, lines)
+hybrid_image = cv2.addWeighted(lane_image, 0.1, line_image, 1, 1)
 # points in hough table represent the theta and row values that are common between a series of points.
 # thresholds are essentially a minimum iteration count
-cv2.imshow('result', line_image)
+cv2.imshow('result', hybrid_image)
 cv2.waitKey(0)
