@@ -1,7 +1,7 @@
 import cv2
 import numpy as np
 
-# image = cv2.imread('./lane-finding.jpeg')
+# image = cv2.imread('./lane-finding.jpeg') 1:07 https://www.youtube.com/watch?v=eLTLtUVuuy4
 image = cv2.imread('./lane-finding-alt.jpeg')
 
 lane_image = np.copy(image)
