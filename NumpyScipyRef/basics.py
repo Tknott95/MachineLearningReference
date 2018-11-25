@@ -28,4 +28,14 @@ def extractRt(E):
   ret[:3, 3] = t
   return ret
 
+
+a2 = np.arange(6) # 1d array
+print(a2)
+
+b2 = np.arange(12).reshape(4, 3) # 2d array
+print("\n 2d arr: \n", b2)
+
+c = np.arange(24).reshape(2,3,4)
+print("\n 3d arr: : \n", c) # 3d array
+
 extractRt(multiDimensArray)
