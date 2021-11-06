@@ -1,0 +1,2 @@
+ffmpeg -i <FILE>.mp4  -vcodec copy -acodec copy <FILE>.avi
+
