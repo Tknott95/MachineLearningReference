@@ -52,7 +52,7 @@ if __name__ == '__main__':
     frameWidth = int(cam.get(3))
     frameHeight = int(cam.get(4))
     camSize = (frameWidth, frameHeight)
-    result = _cv.VideoWriter('eagle_finished.avi', 
+    result = _cv.VideoWriter('deer_finished.avi', 
                          _cv.VideoWriter_fourcc(*'MJPG'),
                          10, camSize)
 
