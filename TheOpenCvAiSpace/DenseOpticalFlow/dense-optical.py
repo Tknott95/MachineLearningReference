@@ -1,7 +1,7 @@
 import cv2 as cv
 import numpy as np
 # Add argv[0] so I do not accidently delete renders
-cap = cv.VideoCapture("./freuds_tools/nightsky0.avi")
+cap = cv.VideoCapture("./freuds_tools/robot0.avi")
 ret, frame1 = cap.read()
 prvs = cv.cvtColor(frame1,cv.COLOR_BGR2GRAY)
 hsv = np.zeros_like(frame1)
@@ -10,7 +10,7 @@ hsv[...,1] = 255
 frameWidth = int(cap.get(3))
 frameHeight = int(cap.get(4))
 capSize = (frameWidth, frameHeight)
-result = cv.VideoWriter('./freuds_toyshop/freuds_nightsky0.avi', 
+result = cv.VideoWriter('./freuds_toyshop/freuds_robot0.avi', 
                          cv.VideoWriter_fourcc(*'MJPG'),
                          10, capSize)
 
