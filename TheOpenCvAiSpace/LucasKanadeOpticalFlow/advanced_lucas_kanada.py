@@ -48,7 +48,7 @@ if __name__ == '__main__':
     except IndexError:
         fn = 0
 
-    cam = _cv.VideoCapture('eagle.avi')
+    cam = _cv.VideoCapture('deer.avi')
     frameWidth = int(cam.get(3))
     frameHeight = int(cam.get(4))
     camSize = (frameWidth, frameHeight)
