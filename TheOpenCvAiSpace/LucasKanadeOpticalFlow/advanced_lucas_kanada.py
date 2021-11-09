@@ -48,11 +48,11 @@ if __name__ == '__main__':
     except IndexError:
         fn = 0
 
-    cam = _cv.VideoCapture('cars.avi')
+    cam = _cv.VideoCapture('eagle.avi')
     frameWidth = int(cam.get(3))
     frameHeight = int(cam.get(4))
     camSize = (frameWidth, frameHeight)
-    result = _cv.VideoWriter('cars_finished.avi', 
+    result = _cv.VideoWriter('eagle_finished.avi', 
                          _cv.VideoWriter_fourcc(*'MJPG'),
                          10, camSize)
 
