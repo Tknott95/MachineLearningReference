@@ -1,5 +1,6 @@
 # imports and basic notebook setup (REFERENCE: http://www.alanzucconi.com/2016/05/25/generating-deep-dreams/ )
-from cStringIO import StringIO
+from io import StringIO
+# DEP from cStringIO import StringIO
 import numpy as np
 import scipy.ndimage as nd
 import PIL.Image
@@ -87,7 +88,7 @@ def deepdream(net, base_img, iter_n=10, octave_n=4, octave_scale=1.4, end='incep
             if not clip: # adjust image contrast if clipping is disabled
                 vis = vis*(255.0/np.percentile(vis, 99.98))
             showarray(vis)
-            print octave, i, end, vis.shape
+            print(octave, i, end, vis.shape)
             clear_output(wait=True)
             
         # extract details produced on the current octave

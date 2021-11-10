@@ -1,8 +1,8 @@
 # Following the older publication on "A Nueral Algorithm of Artistic Style"
 import numpy as np
 from keras.applications.vgg16 import preprocess_input
-from keras.applications import VGG16
-
+# from keras.applications import VGG16
+from keras.applications.vgg16 import VGG16
 from keras import backend as K
 from keras.preprocessing.image import load_img, img_to_array
 

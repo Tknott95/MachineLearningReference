@@ -29,8 +29,8 @@ net_fn   = model_path + 'deploy.prototxt'
 param_fn = model_path + 'bvlc_googlenet.caffemodel'
 
 model = caffe.io.caffe_pb2.NetParameter()
-text_format.Merge(open(net_fn).read(), model))
-model.force_backward = Trueopen'tmp.prototxt', 'w').write(str(model))
+text_format.Merge(open(net_fn).read(), model)
+model.force_backward = Trueopen('tmp.prototxt', 'w').write(str(model))
 
 net = caffe.Classifier('tmp.prototxt', param_fn,
                         mean = np.float32([104.0, 116.0, 122.0]),
