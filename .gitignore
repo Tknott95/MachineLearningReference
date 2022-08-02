@@ -13,4 +13,5 @@ KerasFactory/ArtGAN/ganArt
 KerasFactory/ArtGAN/ganArt*
 KerasFactory/ArtGAN/*.avi
 KerasFactory/ArtGAN/*.mp4
-
+KerasFactory/ArtGAN/RabbitData/*
+KerasFactory/ArtGAN/RabbitData
